@@ -1,0 +1,369 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+    color: #222;
+    min-height: 100vh;
+    padding-top: 80px;
+}
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* Navigation Bar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+}
+.navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+}
+.logo {
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #3a8dde;
+    letter-spacing: 2px;
+}
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+.nav-links a {
+    text-decoration: none;
+    color: #222;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+.nav-links a.active, .nav-links a:hover {
+    background: #3a8dde;
+    color: #fff;
+}
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #3a8dde;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+/* Sections */
+.section {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.7);
+    border-radius: 24px;
+    margin: 40px 0;
+    box-shadow: 0 4px 32px rgba(58,141,222,0.07);
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.7s cubic-bezier(.4,2,.3,1);
+}
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.section h1, .section h2 {
+    color: #3a8dde;
+    margin-bottom: 16px;
+}
+.highlight {
+    color: #ff7e5f;
+}
+.subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 24px;
+}
+
+/* Skills */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    list-style: none;
+    margin-top: 16px;
+}
+.skills-list li {
+    background: rgba(58,141,222,0.12);
+    color: #3a8dde;
+    padding: 10px 22px;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 8px rgba(58,141,222,0.07);
+    transition: background 0.2s, color 0.2s;
+}
+.skills-list li:hover {
+    background: #3a8dde;
+    color: #fff;
+}
+
+/* Cards Grid */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-top: 24px;
+}
+.project-card, .internship-card {
+    background: rgba(255,255,255,0.85);
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(58,141,222,0.09);
+    padding: 28px 22px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    transform: translateY(30px);
+    cursor: pointer;
+    border: 1px solid #e0eafc;
+}
+.project-card.visible, .internship-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.project-card:hover, .internship-card:hover {
+    transform: scale(1.04) translateY(-4px);
+    box-shadow: 0 8px 32px rgba(58,141,222,0.15);
+}
+.project-card h3, .internship-card h3 {
+    color: #3a8dde;
+    margin-bottom: 10px;
+}
+.project-card p, .internship-card p {
+    color: #444;
+    font-size: 1rem;
+}
+
+/* Contact Form */
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 24px;
+}
+#contact-form input, #contact-form textarea {
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid #b5c6e0;
+    font-size: 1rem;
+    background: rgba(255,255,255,0.9);
+    transition: border 0.2s;
+}
+#contact-form input:focus, #contact-form textarea:focus {
+    border: 1.5px solid #3a8dde;
+    outline: none;
+}
+#contact-form button {
+    background: linear-gradient(90deg, #3a8dde 0%, #ff7e5f 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+#contact-form button:hover {
+    background: linear-gradient(90deg, #ff7e5f 0%, #3a8dde 100%);
+    transform: scale(1.03);
+}
+
+/* Profile Card */
+.profile-card {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    background: rgba(255,255,255,0.85);
+    border-radius: 24px;
+    box-shadow: 0 4px 32px rgba(58,141,222,0.10);
+    padding: 32px 40px;
+    max-width: 700px;
+}
+.profile-photo {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #3a8dde;
+    box-shadow: 0 2px 16px rgba(58,141,222,0.10);
+}
+.social-links {
+    display: flex;
+    gap: 18px;
+    margin-top: 8px;
+}
+.social-icon img {
+    width: 28px;
+    height: 28px;
+    max-width: 28px;
+    max-height: 28px;
+    min-width: 28px;
+    min-height: 28px;
+    filter: grayscale(0.2) brightness(0.95);
+    transition: transform 0.2s, filter 0.2s;
+    border-radius: 50%;
+    background: #fff;
+    padding: 3px;
+    object-fit: contain;
+    box-sizing: border-box;
+}
+.social-icon:hover img {
+    transform: scale(1.13) rotate(-8deg);
+    filter: none;
+    box-shadow: 0 2px 12px #3a8dde33;
+}
+
+/* Sliding Skills Animation */
+#skills-list li {
+    opacity: 0;
+    transform: translateX(-40px);
+    animation: slideInSkill 0.7s forwards;
+}
+#skills-list li.animated {
+    opacity: 1;
+    transform: translateX(0);
+}
+@keyframes slideInSkill {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .container {
+        width: 98%;
+        padding: 24px 0;
+    }
+    .cards-grid {
+        gap: 1.2rem;
+    }
+}
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: rgba(255,255,255,0.95);
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        min-width: 160px;
+        box-shadow: 0 4px 24px rgba(58,141,222,0.09);
+        border-radius: 12px;
+        padding: 16px 0;
+        z-index: 1001;
+    }
+    .nav-links li {
+        margin: 0 0 12px 0;
+        text-align: right;
+    }
+    .hamburger {
+        display: flex;
+    }
+}
+@media (max-width: 600px) {
+    .section {
+        padding: 24px 0;
+        margin: 18px 0;
+    }
+    .project-card, .internship-card {
+        padding: 18px 10px;
+    }
+    .profile-card {
+        flex-direction: column;
+        padding: 18px 10px;
+        gap: 1.2rem;
+    }
+    .profile-photo {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+.socials-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 24px;
+}
+.social-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255,255,255,0.85);
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(58,141,222,0.09);
+    padding: 22px 32px 16px 32px;
+    text-decoration: none;
+    color: #3a8dde;
+    font-weight: 600;
+    font-size: 1.08rem;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    min-width: 110px;
+}
+.social-card img {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 10px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: #fff;
+    padding: 3px;
+    box-sizing: border-box;
+    filter: grayscale(0.2) brightness(0.95);
+    transition: filter 0.2s, transform 0.2s;
+}
+.social-card:hover {
+    background: #3a8dde;
+    color: #fff;
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 8px 32px rgba(58,141,222,0.15);
+}
+.social-card:hover img {
+    filter: none;
+    transform: scale(1.13) rotate(-8deg);
+}
+@media (max-width: 600px) {
+    .socials-grid {
+        gap: 1rem;
+    }
+    .social-card {
+        padding: 14px 10px 10px 10px;
+        min-width: 80px;
+        font-size: 0.98rem;
+    }
+    .social-card img {
+        width: 26px;
+        height: 26px;
+    }
+} 
