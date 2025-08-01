@@ -2,10 +2,10 @@
 // --- DYNAMIC PROJECTS & INTERNSHIPS DATA ---
 const projectsData = [
     {
-        title: 'Personal Portfolio',
-        description: 'A modern, responsive portfolio website to showcase my work and skills.',
-        link: '#',
-        code: '#'
+        title: 'Personal Portfolio Website',
+        description: 'Modern responsive portfolio built with HTML5, CSS3, JavaScript, Bootstrap 5, EmailJS, and Intersection Observer API. Features include dynamic content loading, smooth scrolling navigation, mobile-responsive design, contact form with email integration, and social media links.',
+        link: 'https://github.com/mradul0412/PORTFOLIO',
+        code: 'https://github.com/mradul0412/PORTFOLIO'
     },
     {
         title: 'Weather App',
@@ -182,13 +182,30 @@ document.addEventListener('DOMContentLoaded', () => {
         cardObserver.observe(card);
     });
 
-    // --- CONTACT FORM (Optional: simple alert) ---
+    // --- CONTACT FORM (EmailJS Implementation) ---
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
+        // EmailJS initialization - Replace YOUR_USER_ID with your actual EmailJS User ID
+        emailjs.init("6BaUtvhLdcslT6QJO");
+        
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for reaching out!');
-            contactForm.reset();
+            
+            // Form data collect karo
+            const formData = {
+                name: this.name.value,
+                email: this.email.value,
+                message: this.message.value
+            };
+            
+            // Email send karo - Replace YOUR_SERVICE_ID and YOUR_TEMPLATE_ID with actual values
+            emailjs.send('service_pvs9fmc', 'template_jko51u2', formData)
+                .then(function(response) {
+                    alert('Message sent successfully!');
+                    contactForm.reset();
+                }, function(error) {
+                    alert('Failed to send message. Please try again.');
+                });
         });
     }
 }); 
